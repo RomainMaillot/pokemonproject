@@ -1,0 +1,10 @@
+li
+{
+    list-style: none;
+}
+li .pokemonButton
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
