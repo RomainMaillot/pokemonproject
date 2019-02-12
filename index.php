@@ -1,5 +1,17 @@
 <?php
 
+    // Define research and make default
+    $search = empty($_GET['pokemon']) ? '' : $_GET['pokemon'];
+    if (empty($_GET['pokemon'])) 
+    {
+        $searchState = 0;
+    }
+    else {
+        $searchState = 1;
+    }
+
+    
+
     // Create API url
     $url = 'https://pokeapi.co/api/v2/pokemon/?';
     $url .= http_build_query([
@@ -57,7 +69,7 @@
     
     <!-- Form -->
     <form action="#" method="get">
-        <input type="text" name="city" placeholder="City" value="">
+        <input type="text" name="pokemon" placeholder="Pokemon" value="">
         <input type="submit">
     </form>
 
@@ -65,8 +77,12 @@
     <h3>Pokemon</h3>
     <ul>
         <?php for ($i = 0; $i < $count; $i++): ?>
-            <li><?=  $pokemon[$i]->name ?></li>
-        <?php endfor; ?>
+            <?php if ($searchState == 1 && strpos($pokemon[$i]->name, $search) === 0){ ?>
+                <li><?=  $pokemon[$i]->name ?></li>
+            <?php }else if ($searchState == 0){ ?>
+                <li><?=  $pokemon[$i]->name ?></li>
+            <?php }; ?>
+        <?php endfor;  ?>
     </ul>
 
 </body>
