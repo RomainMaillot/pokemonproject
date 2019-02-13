@@ -8,3 +8,30 @@ li .pokemonButton
     flex-direction: row;
     align-items: center;
 }
+.pokemonButton
+{
+    position: relative;
+    width: 20%;
+}
+.pokemonButton::before
+{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #c7ecee;
+    opacity: 0.4;
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+    will-change: transform;
+    z-index: -1;
+}
+.pokemonButton:hover::before
+{
+    transform: scale(1);
+}
+.pokemonButton:hover
+{
+    cursor: pointer;
+}
