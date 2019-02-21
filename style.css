@@ -1,3 +1,54 @@
+.pokedex
+{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 10%;
+    box-sizing: border-box;
+}
+.pokedex::after
+{
+    content: "";
+    position: fixed;
+    width: 95%;
+    height: 95%;
+    border: solid 40px red;
+    opacity: 0.5;
+    bottom: -20px;
+    left: 0;
+    z-index: -1;
+}
+
+.search
+{
+    position: fixed;
+    top: 0;
+    left: -50vw;
+    width: 50vw;
+    height: 10vh;
+    background-color: white;
+    z-index: 10;
+    transform: translateX(100%);
+    transition: transform 0.2s ease-in-out;
+    will-change: transform;
+}
+.search input
+{
+    position: relative;
+    top: 5%;
+    left: 5%;
+}
+
+.pokemonList
+{
+    overflow: scroll;
+    transform: translateX(-120%);
+    transition: transform 0.2s ease-in-out;
+    will-change: transform;
+}
+
 li
 {
     list-style: none;
@@ -18,6 +69,7 @@ li .pokemonButton
     content: "";
     position: absolute;
     bottom: 0;
+    left: -10px;
     width: 100%;
     height: 100%;
     background-color: #c7ecee;
@@ -34,4 +86,35 @@ li .pokemonButton
 .pokemonButton:hover
 {
     cursor: pointer;
+}
+
+.pokemonInfo
+{
+    position: fixed;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 10%;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+}
+
+.pokemonInfo .return
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    z-index: 30;
+}
+
+.toggle
+{
+    transform: translateX(0)
 }
