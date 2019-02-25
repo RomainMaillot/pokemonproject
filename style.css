@@ -105,6 +105,14 @@ li .pokemonButton
     transition: transform 0.3s;
 }
 
+.pokemonInfo img
+{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 0;
+}
+
 .pokemonInfo .return
 {
     position: absolute;

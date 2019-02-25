@@ -11,7 +11,6 @@
     <div class="pokedex">
         <div class="pokemonInfo">
             <div class="return">Retour</div>
-            <h3>Pokemon info</h3>
         </div>
         <!-- Form -->
         <form class="search" action="#" method="get">
@@ -50,14 +49,14 @@
                 {
                     loadedPokemons += 10
 
+
                     fetch(`http://localhost:8888/pokemonproject/pokemonList.php?step=${loadedPokemons}&current=${loadedPokemons - 10}`,
                     {
                         header: "Accept: text/html"
                     })
                     .then(res => res.text())
-                    .then(result => {$container.querySelector('ul').innerHTML += `${result}`})
+                    .then(result => {$container.querySelector('.pokemonList ul').innerHTML += `${result}`; createPokemonActive()})
                 }
-                createPokemonActive()
             }
         )
     </script>

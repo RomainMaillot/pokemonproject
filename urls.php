@@ -69,26 +69,31 @@
         createUrl($pokemonUrl, $index);
     }
 
-    // Function created sprite pokemon links
-    function createPokemonSprite($pokemonName, $index)
+    // Function created info pokemon links
+    function createPokemonInfo($pokemonName, $index, $element)
     {
         global $results;
 
         createPokemonUrl($pokemonName, $index);
 
-        $pokemonSprite = $results[$index]->sprites->front_default;
-        return $pokemonSprite;
-    }
-
-    // Function created id pokemon
-    function createPokemonId($pokemonName, $index)
-    {
-        global $results;
-
-        createPokemonUrl($pokemonName, $index);
-
-        $pokemonId = $results[$index]->id;
-        return $pokemonId;
+        // Created sprites pokemon
+        if($element == 'sprite')
+        {
+            $pokemonSprite = $results[$index]->sprites->front_default;
+            return $pokemonSprite;
+        }
+        // Creating id pokemon
+        else if ($element == 'id') 
+        {
+            $pokemonId = $results[$index]->id;
+            return $pokemonId;
+        }
+        // Creating abilities pokemon
+        else if ($element == 'abilities') 
+        {
+            $pokemonAbilities = $results[$index]->abilities;
+            return $pokemonAbilities;
+        }
     }
 
     createUrl($generalUrl, 0);

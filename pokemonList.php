@@ -13,21 +13,21 @@
     {
     global $pokemon,$searchState, $search, $current, $step;
 
-    for ($i = $current; $i < $step; $i++): 
+    for ($i = $current; $i < $step; $i++):
 ?>
 <?php if ($searchState == 1 && strpos($pokemon[$i]->name, $search) === 0){ ?>
     <li>
         <div class="pokemonButton">
-            <span><?=  createPokemonId($pokemon[$i]->name, $i); ?></span>
-            <img src="<?= createPokemonSprite($pokemon[$i]->name, $i); ?>" alt="">
+            <span class="id" ><?=  createPokemonInfo($pokemon[$i]->name, $i, 'id'); ?></span>
+            <img src="<?= createPokemonInfo($pokemon[$i]->name, $i,'sprite'); ?>" alt="">
             <span><?=  ucfirst($pokemon[$i]->name) ?></span>
         </div>
     </li>
 <?php }else if ($searchState == 0){ ?>
     <li>
         <div class="pokemonButton">
-            <span><?=  createPokemonId($pokemon[$i]->name, $i); ?></span>
-            <img src="<?= createPokemonSprite($pokemon[$i]->name, $i); ?>" alt="">
+            <span class="id" ><?=  createPokemonInfo($pokemon[$i]->name, $i, 'id'); ?></span>
+            <img src="<?= createPokemonInfo($pokemon[$i]->name, $i,'sprite'); ?>" alt="">
             <span><?=  ucfirst($pokemon[$i]->name) ?></span>
         </div>
     </li>
