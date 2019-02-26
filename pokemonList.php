@@ -7,7 +7,7 @@
     }
     else 
     {
-        $step = empty($_GET['step']) ? 10 : $_GET['step'];
+        $step = empty($_GET['step']) ? 20 : $_GET['step'];
     }
     function pokemonList()
     {
@@ -18,16 +18,22 @@
 <?php if ($searchState == 1 && strpos($pokemon[$i]->name, $search) === 0){ ?>
     <li>
         <div class="pokemonButton">
-            <span class="id" ><?=  createPokemonInfo($pokemon[$i]->name, $i, 'id'); ?></span>
             <img src="<?= createPokemonInfo($pokemon[$i]->name, $i,'sprite'); ?>" alt="">
+            <div>
+                <span>n°</span>
+                <span class="id" ><?=  createPokemonInfo($pokemon[$i]->name, $i, 'id'); ?></span>
+            </div>
             <span><?=  ucfirst($pokemon[$i]->name) ?></span>
         </div>
     </li>
 <?php }else if ($searchState == 0){ ?>
     <li>
         <div class="pokemonButton">
-            <span class="id" ><?=  createPokemonInfo($pokemon[$i]->name, $i, 'id'); ?></span>
             <img src="<?= createPokemonInfo($pokemon[$i]->name, $i,'sprite'); ?>" alt="">
+            <div>
+                <span>n°</span>
+                <span class="id" ><?=  createPokemonInfo($pokemon[$i]->name, $i, 'id'); ?></span>
+            </div>
             <span><?=  ucfirst($pokemon[$i]->name) ?></span>
         </div>
     </li>

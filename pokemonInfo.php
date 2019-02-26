@@ -13,7 +13,7 @@
 
 <h3>Pokemon info</h3>
 
-<h2 class="pokemonName"><?= $pokemon[$index]->name ?></h2>
+<h2 class="pokemonName"><?= ucfirst($pokemon[$index]->name) ?></h2>
 
 <div class="abilities">
     <ul>

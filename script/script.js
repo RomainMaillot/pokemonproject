@@ -48,6 +48,14 @@ const createPokemonActive = () =>
                 }
             }
         )
+        $pokemon.addEventListener(
+            'mouseenter',
+            () =>
+            {
+                $spriteUrl = $pokemon.querySelector('img').getAttribute('src')
+                $pokemonPreviewImg.setAttribute('src', `${$spriteUrl}`)
+            }
+        )
     }
 }
 createPokemonActive()
