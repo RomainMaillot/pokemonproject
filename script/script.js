@@ -3,6 +3,7 @@ const toggleInfo = () =>
     $pokemonInfo.classList.toggle('toggle')
     $pokemonList.classList.toggle('toggle')
     $searchBar.classList.toggle('toggle')
+    $pokemonPreview.classList.toggle('toggle')
     if($pokemonInfo.querySelector('.pokemonInfoContainer'))
     {
         $pokemonInfo.removeChild($pokemonInfoContainer)
@@ -54,6 +55,7 @@ const createPokemonActive = () =>
             {
                 $spriteUrl = $pokemon.querySelector('img').getAttribute('src')
                 $pokemonPreviewImg.setAttribute('src', `${$spriteUrl}`)
+                selectSound.play()
             }
         )
     }

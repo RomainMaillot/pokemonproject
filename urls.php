@@ -69,7 +69,21 @@
         createUrl($pokemonUrl, $index);
     }
 
-    // Function created info pokemon links
+    // Function created pokemon description
+    function createPokemonDescription($pokemonId, $index)
+    {
+        global $results;
+        // Create API pokemon url
+        $pokemonUrl = 'https://pokeapi.co/api/v2/pokemon-species/';
+        $pokemonUrl .= $pokemonId;
+
+        createUrl($pokemonUrl, $index);
+
+        $pokemonDescription = $results[$index]->flavor_text_entries[1]->flavor_text;
+        return $pokemonDescription;
+    }
+
+    // Function created info pokemon info
     function createPokemonInfo($pokemonName, $index, $element)
     {
         global $results;

@@ -9,6 +9,7 @@
         $types = $results[$index]->types;
         $height = $results[$index]->height;
         $weight = $results[$index]->weight;
+        $description = createPokemonDescription($index + 1, $index + 1);
 ?>
 
 <h3>Pokemon info</h3>
@@ -38,6 +39,10 @@
 <span>HEIGHT: <?= $height / 10 ?>m</span>
 <br>
 <span>WEIGHT: <?= $weight / 10 ?>kg</span>
+
+<div class="description">
+    <p><?= $description ?></p>
+</div>
 
 <?php
     };

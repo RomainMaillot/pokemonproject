@@ -8,20 +8,17 @@
     <title>Pokemon</title>
 </head>
 <body>
+    <header>
+        <h1>POKEDEX</h1>
+    </header>
     <div class="pokedex">
-        <h1>Pokedex national</h1>
         <div class="pokemonInfo">
             <div class="return">Retour</div>
         </div>
-        <div class="pokemonPreview">
+        <div class="pokemonPreview toggle">
             <span>Click to get info !</span>
             <img src="" alt="">
         </div>
-        <!-- Form -->
-        <form class="search" action="#" method="get">
-            <input type="text" name="searchPokemon" placeholder="Search pokemon" value="">
-            <input type="submit" value="Rechercher">
-        </form>
         <h3>Pokemon</h3>
         <div class="pokemonList toggle">
             <!-- Results -->
@@ -30,15 +27,24 @@
             </ul>
         </div>
     </div>
+    <footer>
+        <!-- Form -->
+        <form class="search" action="#" method="get">
+            <input type="text" name="searchPokemon" placeholder="Search pokemon" value="">
+            <input type="submit" value="Rechercher">
+        </form>
+    </footer>
     <script>
         let $container = document.querySelector('.pokedex')
         let windowHeight = window.innerHeight
         let loadedPokemons = 20
         let $pokemonInfo = document.querySelector('.pokemonInfo')
         let $pokemonList = document.querySelector('.pokemonList')
-        let $pokemonPreviewImg = document.querySelector('.pokemonPreview img')
+        let $pokemonPreview = document.querySelector('.pokemonPreview')
+        let $pokemonPreviewImg = $pokemonPreview.querySelector('img')
         let $searchBar = document.querySelector('.search')
         let $return = document.querySelector('.return')
+        let selectSound = new Audio("sound/select.mp3")
         let $pokemons
         console.log($pokemons)
         let searchState = <?= $searchState; ?>

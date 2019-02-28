@@ -8,17 +8,31 @@ body
 {
     font-family: "Pokemon Pixel", serif;
 }
-
-h1, h3
-{
-    position: fixed;
-    left: 5%;
-}
 h3
 {
     top: 5%;
 }
 
+/* HEADER */
+header
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    background-color: #040404;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+header h1
+{
+    color: white;
+    margin-left: 5vw;
+}
+
+/* MAIN */
 .pokedex
 {
     position: relative;
@@ -34,31 +48,9 @@ h3
     position: fixed;
     width: 95%;
     height: 95%;
-    border: solid 40px red;
-    opacity: 0.5;
     bottom: -20px;
     left: 0;
     z-index: -1;
-}
-
-.search
-{
-    position: fixed;
-    bottom: 0;
-    left: -50vw;
-    width: 50vw;
-    height: 10vh;
-    background-color: white;
-    z-index: 10;
-    transform: translateX(100%);
-    transition: transform 0.2s ease-in-out;
-    will-change: transform;
-}
-.search input
-{
-    position: relative;
-    top: 5%;
-    left: 5%;
 }
 
 .pokemonList
@@ -75,12 +67,6 @@ li
 {
     list-style: none;
 }
-li .pokemonButton
-{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
 .pokemonButton
 {
     position: relative;
@@ -88,6 +74,11 @@ li .pokemonButton
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    border: solid 1px #c7ecee;
+    border-radius: 20px;
+    padding: 0 10px;
+    margin: 5px;
 }
 .pokemonButton img
 {
@@ -98,7 +89,8 @@ li .pokemonButton
     content: "";
     position: absolute;
     bottom: 0;
-    width: 110%;
+    left: 0;
+    width: 100%;
     height: 100%;
     background-color: #c7ecee;
     opacity: 0.4;
@@ -106,6 +98,7 @@ li .pokemonButton
     transition: transform 0.2s ease-in-out;
     will-change: transform;
     z-index: -1;
+    border-radius: 20px;
 }
 .pokemonButton:hover::before
 {
@@ -117,7 +110,7 @@ li .pokemonButton
 }
 
 
-
+/* Pokemon Info */
 .pokemonInfo
 {
     position: fixed;
@@ -133,6 +126,7 @@ li .pokemonButton
     left: 0;
     transform: translateX(100%);
     transition: transform 0.3s;
+    will-change: transform;
 }
 
 .pokemonInfo img
@@ -146,7 +140,7 @@ li .pokemonButton
 .pokemonInfo .return
 {
     position: absolute;
-    top: 0;
+    bottom: 10vh;
     left: 0;
     cursor: pointer;
     z-index: 30;
@@ -166,6 +160,15 @@ li .pokemonButton
     height: 100px;
     border: solid 2px #c7ecee;
     border-radius: 20%;
+    transform: translateX(-400%);
+    transition: transform 0.3s, opacity 0.1s;
+    will-change: transform, opacity;
+    opacity: 0;
+}
+.pokemonPreview.toggle
+{
+    transform: translateX(0);
+    opacity: 1;
 }
 .pokemonPreview span
 {
@@ -173,4 +176,32 @@ li .pokemonButton
     bottom: -20%;
     width: 100%;
     text-align: center;
+}
+.pokemonPreview img
+{
+    width: 100%;
+}
+
+/* FOOTER */
+footer
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    background-color: #040404;
+    display: flex;
+    align-items: center;
+}
+.search
+{
+    position: fixed;
+    transition: transform 0.2s ease-in-out;
+    will-change: transform;
+    z-index: 10;
+}
+.search.toggle
+{
+    transform: translateX(-100%);
 }
