@@ -58,6 +58,28 @@
         $results[$index] = json_decode($results[$index]);
     };
 
+    // Function to get string with out accent
+    function str_to_noaccent($str)
+    {
+        $noAccent = $str;
+        $noAccent = preg_replace('#Ç#', 'C', $noAccent);
+        $noAccent = preg_replace('#ç#', 'c', $noAccent);
+        $noAccent = preg_replace('#è|é|ê|ë#', 'e', $noAccent);
+        $noAccent = preg_replace('#È|É|Ê|Ë#', 'E', $noAccent);
+        $noAccent = preg_replace('#à|á|â|ã|ä|å#', 'a', $noAccent);
+        $noAccent = preg_replace('#@|À|Á|Â|Ã|Ä|Å#', 'A', $noAccent);
+        $noAccent = preg_replace('#ì|í|î|ï#', 'i', $noAccent);
+        $noAccent = preg_replace('#Ì|Í|Î|Ï#', 'I', $noAccent);
+        $noAccent = preg_replace('#ð|ò|ó|ô|õ|ö#', 'o', $noAccent);
+        $noAccent = preg_replace('#Ò|Ó|Ô|Õ|Ö#', 'O', $noAccent);
+        $noAccent = preg_replace('#ù|ú|û|ü#', 'u', $noAccent);
+        $noAccent = preg_replace('#Ù|Ú|Û|Ü#', 'U', $noAccent);
+        $noAccent = preg_replace('#ý|ÿ#', 'y', $noAccent);
+        $noAccent = preg_replace('#Ý#', 'Y', $noAccent);
+        
+        return ($noAccent);
+    }
+
     // Function created pokemon links
     function createPokemonUrl($pokemonName, $index)
     {
@@ -70,7 +92,7 @@
     }
 
     // Function created pokemon description
-    function createPokemonDescription($pokemonId, $index)
+    function createPokemonSpecies($pokemonId, $index, $info)
     {
         global $results;
         // Create API pokemon url
@@ -78,9 +100,33 @@
         $pokemonUrl .= $pokemonId;
 
         createUrl($pokemonUrl, $index);
-
-        $pokemonDescription = $results[$index]->flavor_text_entries[1]->flavor_text;
-        return $pokemonDescription;
+        if($info == 'description')
+        {
+            if ($results[$index]->flavor_text_entries[2]->language->name == 'en') 
+            {
+                $pokemonDescription = $results[$index]->flavor_text_entries[2]->flavor_text;
+            }
+            else 
+            {
+                $pokemonDescription = $results[$index]->flavor_text_entries[1]->flavor_text;
+            }
+            $pokemonDescription = str_to_noaccent($pokemonDescription);
+            return $pokemonDescription;
+        }
+        elseif ($info == 'genus') 
+        {
+            if ($results[$index]->genera[2]->language->name == 'en') 
+            {
+                $pokemonGenus = $results[$index]->genera[2]->genus;
+            }
+            else 
+            {
+                $pokemonGenus = $results[$index]->genera[1]->genus;
+            }
+            $pokemonGenus = str_to_noaccent($pokemonGenus);
+            return $pokemonGenus;
+        }
+        
     }
 
     // Function created info pokemon info
