@@ -13,6 +13,19 @@ const start = () =>
 if (searchState == 1) 
 {
     start()
+    $back = document.createElement('img')
+    $back.classList.add('back')
+    $back.setAttribute('src','images/back.png')
+
+    $searchBar.parentNode.appendChild($back)
+
+    $back.addEventListener(
+        'click',
+        () =>
+        {
+            window.location.replace('http://localhost:8888/pokemonproject/')
+        }
+    )
 }
 
 const toggleInfo = () =>
