@@ -18,5 +18,8 @@ I used Ajax in order to dynamise my php.
 * You can navigate between the current pokemon to next or previous one. 
 * Using cache in order to load info just one time and not everytime.
 
+## Note
+The first time you open the project, the loading can be quiet long because you don't have cache at first.
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
