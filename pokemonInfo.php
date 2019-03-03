@@ -28,16 +28,14 @@
     </div>
 
     <div class="abilities">
-        <ul>
+        <h3>Base abilities :</h3>
         <?php foreach ($abilities as $ability): ?>
-        <li>
-            <span><?= $ability->ability->name; ?></span>
-        </li>
+            <span><?= ucfirst($ability->ability->name); ?></span>
         <?php endforeach; ?>
-        </ul>
     </div>
 
     <div class="types">
+        <h3>Types :</h3>
         <?php foreach ($types as $type): ?>
             <span class="type <?= $type->type->name; ?>"><?= strtoupper($type->type->name); ?></span>
         <?php endforeach; ?>

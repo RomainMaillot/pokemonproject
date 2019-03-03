@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Pokemon</title>
+    <title>Pokedex</title>
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
 </head>
 <body>
     <header>
@@ -23,7 +24,6 @@
             <span>Click to get info !</span>
             <img src="" alt="">
         </div>
-        <h3>Pokemon</h3>
         <div class="pokemonList toggle">
             <!-- Results -->
             <ul>

@@ -7,6 +7,7 @@
 body 
 {
     font-family: "Pokemon Pixel", serif;
+    overflow: hidden;
 }
 h3
 {
@@ -228,6 +229,8 @@ li
    width: 100vw;
    transition: 0.2s;
    opacity: 1;
+   display: flex;
+   justify-content: center;
 }
 .pokemonInfoContainer.appear
 {
@@ -239,6 +242,7 @@ li
     width: 250px;
     position: absolute;
     top: 10%;
+    left: 10%;
 }
 
 .infosContainer
@@ -326,14 +330,19 @@ li
 {
     width: 100%;
 }
+.genus p
+{
+    margin: 0;
+}
 
 /* TYPES */
-.types
+.types, .abilities
 {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
 }
 .type
 {
