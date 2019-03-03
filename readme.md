@@ -16,6 +16,7 @@ I used Ajax in order to dynamise my php.
 * You can search for your pokemon with the search bar or just search all pokemons starting with a.
 * If you click on a pokemon, you will get all his basics informations.
 * You can navigate between the current pokemon to next or previous one. 
+* Using cache in order to load info just one time and not everytime.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
