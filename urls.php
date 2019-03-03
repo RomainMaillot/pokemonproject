@@ -100,31 +100,39 @@
         $pokemonUrl .= $pokemonId;
 
         createUrl($pokemonUrl, $index);
-        if($info == 'description')
+        if ($results[$index] !== null) 
         {
-            if ($results[$index]->flavor_text_entries[2]->language->name == 'en') 
+            if($info == 'description')
             {
-                $pokemonDescription = $results[$index]->flavor_text_entries[2]->flavor_text;
+                if ($results[$index]->flavor_text_entries[2]->language->name == 'en') 
+                {
+                    $pokemonDescription = $results[$index]->flavor_text_entries[2]->flavor_text;
+                }
+                else 
+                {
+                    $pokemonDescription = $results[$index]->flavor_text_entries[1]->flavor_text;
+                }
+                $pokemonDescription = str_to_noaccent($pokemonDescription);
+                return $pokemonDescription;
             }
-            else 
+            elseif ($info == 'genus') 
             {
-                $pokemonDescription = $results[$index]->flavor_text_entries[1]->flavor_text;
+                if ($results[$index]->genera[2]->language->name == 'en') 
+                {
+                    $pokemonGenus = $results[$index]->genera[2]->genus;
+                }
+                else 
+                {
+                    $pokemonGenus = $results[$index]->genera[1]->genus;
+                }
+                $pokemonGenus = str_to_noaccent($pokemonGenus);
+                return $pokemonGenus;
             }
-            $pokemonDescription = str_to_noaccent($pokemonDescription);
-            return $pokemonDescription;
         }
-        elseif ($info == 'genus') 
+        else 
         {
-            if ($results[$index]->genera[2]->language->name == 'en') 
-            {
-                $pokemonGenus = $results[$index]->genera[2]->genus;
-            }
-            else 
-            {
-                $pokemonGenus = $results[$index]->genera[1]->genus;
-            }
-            $pokemonGenus = str_to_noaccent($pokemonGenus);
-            return $pokemonGenus;
+            $pokemonDescription = 'No info';
+            return $pokemonDescription;
         }
         
     }
